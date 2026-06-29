@@ -1,118 +1,102 @@
-[My Actor](https://apify.com/vernacular_reservoir/my-actor?fpr=data)
+[My Actor](https://apify.com/scenic_bookmark/my-actor?fpr=data)
 
-# JavaScript Crawlee & CheerioCrawler Actor Template
+# Instagram Intelligence Engine 🚀
 
- 
+**Stop guessing. Measure Instagram performance.**
 
-This template example was built with [Crawlee](https://crawlee.dev/) to scrape data from a website using [Cheerio](https://cheerio.js.org/) wrapped into [CheerioCrawler](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler).
+This is not just a scraper. It is an **Intelligence Engine** that turns raw public Instagram data into actionable insights.
 
-## Quick Start
+- **Audits Influencers** ("Is this account healthy?")
+- **Spots Trends** ("Is this hashtag rising?")
+- **Prevents Blocking** (Enterprise-grade anti-detection)
 
-Once you've installed the dependencies, start the Actor:
+## 🧠 Instant Intelligence Features
 
-```
-$apify run
-```
+Unlike basic scrapers that dump raw JSON, this engine computes **Premium Insights**:
 
-Once your Actor is ready, you can push it to the Apify Console:
+### 1. Influencer Audit Mode (Profile)
 
-```
-apify login # first, you need to log in if you haven't already done so
+Answers: *"Is this creator worth collaborating with?"*
 
-apify push
-```
+- **Engagement Rating**: Automatic grading (e.g., "VIRAL >5%", "HIGH >3%").
+- **Account Health**: Detects dormant accounts or potential bots.
+- **Growth Signal**: Identifies accounts with recent velocity spikes.
+- **Lead Gen**: Extracts **Emails** & **Phones** from bios.
 
-## Project Structure
+### 2. Viral Discovery Mode (Reels)
 
-```
-.actor/
-├── actor.json # Actor config: name, version, env vars, runtime settings
-├── dataset_schema.json # Structure and representation of data produced by an Actor
-├── input_schema.json # Input validation & Console form definition
-└── output_schema.json # Specifies where an Actor stores its output
-src/
-└── main.js # Actor entry point and orchestrator
-storage/ # Local storage (mirrors Cloud during development)
-├── datasets/ # Output items (JSON objects)
-├── key_value_stores/ # Files, config, INPUT
-└── request_queues/ # Pending crawl requests
-Dockerfile # Container image definition
-```
+Answers: *"What content format is working right now?"*
 
-For more information, see the [Actor definition](https://docs.apify.com/platform/actors/development/actor-definition) documentation.
+- **Velocity Analysis**: Views per hour calculation.
+- **Audio Trend Identification**.
 
-## How it works
+### 3. Hashtag Research Mode
 
-This code is a JavaScript script that uses Cheerio to scrape data from a website. It then stores the website titles in a dataset.
+Answers: *"Is this niche dead or alive?"*
 
-- The crawler starts with URLs provided from the input `startUrls` field defined by the input schema. Number of scraped pages is limited by `maxPagesPerCrawl` field from the input schema.
-- The crawler uses `requestHandler` for each URL to extract the data from the page with the Cheerio library and to save the title and URL of each page to the dataset. It also logs out each result that is being saved.
+- **Top Post Analysis**.
+- **Co-occurrence**: Find related tags.
 
-## What's included
+## ⚡ Turbo Speed Mode (God Mode)
 
-- **[Apify SDK](https://docs.apify.com/sdk/js)** - toolkit for building [Actors](https://apify.com/actors)
-- **[Crawlee](https://crawlee.dev/)** - web scraping and browser automation library
-- **[Input schema](https://docs.apify.com/platform/actors/development/input-schema)** - define and easily validate a schema for your Actor's input
-- **[Dataset](https://docs.apify.com/sdk/python/docs/concepts/storages#working-with-datasets)** - store structured data where each object stored has the same attributes
-- **[Cheerio](https://cheerio.js.org/)** - a fast, flexible & elegant library for parsing and manipulating HTML and XML
-- **[Proxy configuration](https://docs.apify.com/platform/proxy)** - rotate IP addresses to prevent blocking
+Toggle `fastMode: true` to enable high-velocity scraping.
 
-## Resources
+- **Instant Scroll**: Bypasses human emulation for instant page traversal.
+- **Zero-Wait Navigation**: Scrapes data as soon as the DOM is ready (`domcontentloaded`).
+- **Micro-Latency**: Delays reduced to 100-300ms for machine-speed execution.
+- **Resource Blocking**: Aggressively blocks images, fonts, and analytics.
 
-- [Quick Start](https://docs.apify.com/platform/actors/development/quick-start) guide for building your first Actor
-- [Video tutorial](https://www.youtube.com/watch?v=yTRHomGg9uQ) on building a scraper using CheerioCrawler
-- [Written tutorial](https://docs.apify.com/academy/web-scraping-for-beginners/challenge) on building a scraper using CheerioCrawler
-- [Web scraping with Cheerio in 2023](https://blog.apify.com/web-scraping-with-cheerio/)
-- How to [scrape a dynamic page](https://blog.apify.com/what-is-a-dynamic-page/) using Cheerio
-- [Integration with Zapier](https://apify.com/integrations), Make, Google Drive and others
-- [Video guide on getting data using Apify API](https://www.youtube.com/watch?v=ViYYDHSBAKM)
+> **Warning**: this mode is essentially "Bot Mode". Use with caution.
 
-## Creating Actors with templates
+## 🛡️ Anti-Blocking Technology
 
-[Video](https://www.youtube.com/embed/u-i-Korzf8w?enablejsapi=1&rel=0)
+Built on Apify SDK v3 + Crawlee + Playwright:
 
-## Getting started
+- **Session Pools**: Persisted cookies & headers.
+- **Human Emulation**: Randomized scrolling & mouse movements.
+- **Adaptive Retries**: Smart handling of login walls.
 
-For complete information [see this article](https://docs.apify.com/platform/actors/development#build-actor-at-apify-console). In short, you will:
+## Input Configuration
 
-1. Build the Actor
-2. Run the Actor
-
-## Pull the Actor for local development
-
-If you would like to develop locally, you can pull the existing Actor from Apify console using Apify CLI:
-
-1. Install `apify-cli`
-
-**Using Homebrew**
+The Actor accepts the following input options:
 
 ```
-$brew install apify-cli
+{
+    "mode": "profile", // "profile" | "hashtag" | "reels"
+    "targets": ["apifytech", "instagram"], // usernames, hashtags, or URLs
+    "maxItems": 50, // Max items to scrape per target
+    "scrollLimit": 6, // Max scrolls per page
+    "proxyType": "residential", // "residential" (recommended) or "datacenter"
+    "delayMinMs": 2500,
+    "delayMaxMs": 6000
+}
 ```
 
-**Using NPM**
+## 💎 Premium Output Structure
+
+We structure data so you see the **Answer** first.
 
 ```
-$npm -g install apify-cli
+{
+    "summary": {
+        "username": "apifytech",
+        "account_health": "HEALTHY (Contactable)",
+        "engagement_rating": "HIGH (>3%)",
+        "growth_signal": "POSITIVE_SIGNAL",
+        "contact_status": "HAS_EMAIL",
+        "followers": 15200
+    },
+    "profile_details": {
+        "full_name": "Apify",
+        "public_email": "contact@apify.com",
+        "biography": "Web scraping made easy...",
+        "is_verified": true
+    },
+    "engagement_metrics": {
+        "engagementRate": 3.45,
+        "avgLikes": 450,
+        "avgComments": 12
+    },
+    "latest_posts": [...]
+}
 ```
-2. Pull the Actor by its unique `<ActorId>`, which is one of the following:
-
-- unique name of the Actor to pull (e.g. "apify/hello-world")
-- or ID of the Actor to pull (e.g. "E2jjCZBezvAZnX8Rb")
-
-You can find both by clicking on the Actor title at the top of the page, which will open a modal containing both Actor unique name and Actor ID.
-
-This command will copy the Actor into the current directory on your local machine.
-
-```
-$apify pull <ActorId>
-```
-
-## Documentation reference
-
-To learn more about Apify and Actors, take a look at the following resources:
-
-- [Apify SDK for JavaScript documentation](https://docs.apify.com/sdk/js)
-- [Apify SDK for Python documentation](https://docs.apify.com/sdk/python)
-- [Apify Platform documentation](https://docs.apify.com/platform)
-- [Join our developer community on Discord](https://discord.com/invite/jyEM2PRvMU)
